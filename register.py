@@ -13,11 +13,13 @@ driver = webdriver.Chrome()
 # loop here
 csv1 = "austinexp.csv"
 df = pandas.read_csv(csv1)
-for x in range(len(df.index)-1):
+# len(df.index)-3
+for x in range(3):
     
     url = "https://landonearth.com/professional/signup"
     driver.get(url)
 
+    time.sleep(1)
     ffname = df["FIRST NAME"][x]
     fname = driver.find_element("id", "pro-form_first_name")
     fname.send_keys(ffname)
@@ -26,6 +28,9 @@ for x in range(len(df.index)-1):
     llname = df["LAST NAME"][x]
     lname = driver.find_element("id", "pro-form_last_name")
     lname.send_keys(llname)
+    print(llname)
+
+    # time.sleep(.5)
 
     pphone = df["PHONE"][x]
     phone = driver.find_element("id", "pro-form_phone_number")
@@ -39,10 +44,11 @@ for x in range(len(df.index)-1):
     password = driver.find_element("id", "password-input")
     password.send_keys(ppassword)
 
-    time.sleep(1)
+    time.sleep(.5)
     element = driver.find_element(By.XPATH, "//button[@phx-click='next_step']")
     element.click()
 
+    time.sleep(1)
     sstate = "Texas"
     state = driver.find_element("id", "pro-form_state")
     state.send_keys(sstate)
@@ -51,6 +57,7 @@ for x in range(len(df.index)-1):
     llicense = df["LICENSE"][x]
     license1 = driver.find_element("id", "pro-form_state_license_number")
     license1.send_keys(str(llicense))
+    print(llicense)
     
 
     # Select San Antonio with "SABOR"
@@ -67,18 +74,18 @@ for x in range(len(df.index)-1):
     brokerRec = driver.find_element("id", "pro-form_broker_record")
     brokerRec.send_keys(bbrokerRec)
     
-    time.sleep(5)
+    time.sleep(1)
 
 
     
     element = driver.find_element(By.XPATH, "//button[@phx-click='next_step']")
     element.click()
 
-    time.sleep(5)
+    time.sleep(1)
 
     dismiss = driver.find_element(By.XPATH, "//button[@phx-click='go_to_home']")
     dismiss.click()
 
-    time.sleep(5)
+    time.sleep(1)
 
 driver.quit()

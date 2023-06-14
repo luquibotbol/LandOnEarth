@@ -4,7 +4,7 @@ import pandas
 
 csv1 = "austinexp.csv"
 df = pandas.read_csv(csv1)
-for x in range(len(df.index)-1):
+for x in range(len(df.index)-3, len(df.index)-1):
     
     
     ffname = df["FIRST NAME"][x]
@@ -43,15 +43,5 @@ for x in range(len(df.index)-1):
     bbrokerRec = df["BROKER"][x]
     print(bbrokerRec)
     
-    time.sleep(50)
 
-
-    time.sleep(1)
-    # element = driver.find_element(By.XPATH, "//button[@phx-click='next_step']")
-    # element.click()
-
-    # dismiss = driver.find_element(By.XPATH, "//button[@phx-click='go_to_home']")
-    # dismiss.click()
-
-    time.sleep(5)
 
