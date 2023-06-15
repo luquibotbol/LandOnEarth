@@ -13,8 +13,9 @@ driver = webdriver.Chrome()
 # loop here
 csv1 = "austinexp.csv"
 df = pandas.read_csv(csv1)
-# len(df.index)-3
-for x in range(3):
+wait = WebDriverWait(driver, timeout=10, poll_frequency=1)
+# 3, len(df.index)-3
+for x in range(3, 6):
     
     url = "https://landonearth.com/professional/signup"
     driver.get(url)
@@ -45,6 +46,7 @@ for x in range(3):
     password.send_keys(ppassword)
 
     time.sleep(.5)
+    element = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@phx-click='next_step']")))
     element = driver.find_element(By.XPATH, "//button[@phx-click='next_step']")
     element.click()
 
@@ -77,12 +79,13 @@ for x in range(3):
     time.sleep(1)
 
 
-    
+    element = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@phx-click='next_step']")))
     element = driver.find_element(By.XPATH, "//button[@phx-click='next_step']")
     element.click()
 
     time.sleep(1)
 
+    dismiss = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@phx-click='go_to_home']")))
     dismiss = driver.find_element(By.XPATH, "//button[@phx-click='go_to_home']")
     dismiss.click()
 
