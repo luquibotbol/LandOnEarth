@@ -14,7 +14,7 @@ driver = webdriver.Chrome()
 csv1 = "austinexp.csv"
 df = pandas.read_csv(csv1)
 wait = WebDriverWait(driver, timeout=10, poll_frequency=1)
-# 3, len(df.index)-3
+# 6, len(df.index)-3
 for x in range(3, 6):
     
     url = "https://landonearth.com/professional/signup"
@@ -60,6 +60,7 @@ for x in range(3, 6):
     license1 = driver.find_element("id", "pro-form_state_license_number")
     license1.send_keys(str(llicense))
     print(llicense)
+    print(x)
     
 
     # Select San Antonio with "SABOR"
@@ -88,7 +89,7 @@ for x in range(3, 6):
     dismiss = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@phx-click='go_to_home']")))
     dismiss = driver.find_element(By.XPATH, "//button[@phx-click='go_to_home']")
     dismiss.click()
-
+    print(x)
     time.sleep(1)
 
 driver.quit()
