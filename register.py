@@ -21,12 +21,12 @@ for x in range(3, 6):
     driver.get(url)
 
     time.sleep(1)
-    ffname = df["FIRST NAME"][x]
+    ffname = df["FIRST"][x]
     fname = driver.find_element("id", "pro-form_first_name")
     fname.send_keys(ffname)
 
 
-    llname = df["LAST NAME"][x]
+    llname = df["LAST"][x]
     lname = driver.find_element("id", "pro-form_last_name")
     lname.send_keys(llname)
     print(llname)
