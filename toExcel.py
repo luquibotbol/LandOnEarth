@@ -7,6 +7,9 @@ csv2 = "empty.csv"
 df = pd.read_csv(csv1)
 ds = pd.read_csv(csv2)
 
+linkstr = "" # Put all the links in here
+links = linkstr.split(",")
+
 count = 0
 for x in range(len(ds)):
     row = df.loc[(df['FIRST'] == ds["FIRST"][x].lower()) & (df['LAST'] == ds["LAST"][x].lower())].values
@@ -17,6 +20,11 @@ for x in range(len(ds)):
         ds.at[x, "PASSWORD"] = ds["FIRST"][x][0] + ds["LAST"][x][0] + "exp2023" # Add extra password in this string
         ds.at[x, "BROKERAGE"] = "eXp Realty" # Add Brokerage Name
         ds.at[x, "BROKER"] = "Tony King" # Add Broker Name
+        
+        # Test stuff
+        ds.at[x, "BLACK URL"] = links[x]
+        ds.at[x, "PROD URL"] = links[x].replace(".black", ".com")
+
 
     else:
         # print individual errors
