@@ -7,8 +7,8 @@ csv2 = "empty.csv"
 df = pd.read_csv(csv1)
 ds = pd.read_csv(csv2)
 
-linkstr = "" # Put all the links in here
-links = linkstr.split(",")
+# linkstr = "" # Put all the links in here
+# links = linkstr.split(",")
 
 count = 0
 for x in range(len(ds)):
@@ -21,9 +21,9 @@ for x in range(len(ds)):
         ds.at[x, "BROKERAGE"] = "eXp Realty" # Add Brokerage Name
         ds.at[x, "BROKER"] = "Tony King" # Add Broker Name
         
-        # Test stuff
-        ds.at[x, "BLACK URL"] = links[x]
-        ds.at[x, "PROD URL"] = links[x].replace(".black", ".com")
+        # # Test stuff
+        # ds.at[x, "BLACK URL"] = links[x]
+        # ds.at[x, "PROD URL"] = links[x].replace(".black", ".com")
 
 
     else:
